@@ -6,6 +6,8 @@ TagManager:
   tags:
   - MainBuilding
   - Empty
+  - UI
+  - Enemy
   layers:
   - Default
   - TransparentFX

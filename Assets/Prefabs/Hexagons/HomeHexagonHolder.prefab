@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2804412996736974882}
-  - component: {fileID: 5537947988790001403}
   m_Layer: 0
   m_Name: HomeHexagonHolder
   m_TagString: Untagged
@@ -39,22 +38,6 @@ Transform:
   - {fileID: 3019346258677911078}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!208 &5537947988790001403
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1519996805412052383}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &4344607410734025936
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,8 +47,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4928505132786479711}
-  - component: {fileID: 3776379769048866165}
   - component: {fileID: 2820971072833420047}
+  - component: {fileID: 7868369624930823319}
   m_Layer: 7
   m_Name: MainBuilding
   m_TagString: MainBuilding
@@ -89,8 +72,20 @@ Transform:
   - {fileID: 2822141384111127212}
   m_Father: {fileID: 2804412996736974882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3776379769048866165
-BoxCollider:
+--- !u!114 &2820971072833420047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4344607410734025936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa706f9972072ed4f999b1de71ab835a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &7868369624930823319
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,20 +103,8 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.8
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2820971072833420047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4344607410734025936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa706f9972072ed4f999b1de71ab835a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1141239238496264062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77690724141c7fd4ead08c026af041d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsNewBuildingPlaceable: 1
   HalfTransparentMat: {fileID: 2100000, guid: 54d8fdc438b4faa48a952b09dbb45bec, type: 2}
   FullTransparentMat: {fileID: 2100000, guid: ddc3233afaf3bec4a89c5f83c3fc689a, type: 2}
 --- !u!54 &679898448463775056
@@ -531,6 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77690724141c7fd4ead08c026af041d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsNewBuildingPlaceable: 1
   HalfTransparentMat: {fileID: 2100000, guid: 54d8fdc438b4faa48a952b09dbb45bec, type: 2}
   FullTransparentMat: {fileID: 2100000, guid: ddc3233afaf3bec4a89c5f83c3fc689a, type: 2}
 --- !u!54 &7068347612171067628
@@ -706,6 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77690724141c7fd4ead08c026af041d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsNewBuildingPlaceable: 1
   HalfTransparentMat: {fileID: 2100000, guid: 54d8fdc438b4faa48a952b09dbb45bec, type: 2}
   FullTransparentMat: {fileID: 2100000, guid: ddc3233afaf3bec4a89c5f83c3fc689a, type: 2}
 --- !u!54 &3605140539990508408
@@ -881,6 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77690724141c7fd4ead08c026af041d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsNewBuildingPlaceable: 1
   HalfTransparentMat: {fileID: 2100000, guid: 54d8fdc438b4faa48a952b09dbb45bec, type: 2}
   FullTransparentMat: {fileID: 2100000, guid: ddc3233afaf3bec4a89c5f83c3fc689a, type: 2}
 --- !u!54 &7557166115945142759
@@ -1062,6 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77690724141c7fd4ead08c026af041d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsNewBuildingPlaceable: 1
   HalfTransparentMat: {fileID: 2100000, guid: 54d8fdc438b4faa48a952b09dbb45bec, type: 2}
   FullTransparentMat: {fileID: 2100000, guid: ddc3233afaf3bec4a89c5f83c3fc689a, type: 2}
 --- !u!54 &7868000748129145003
@@ -1231,6 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77690724141c7fd4ead08c026af041d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsNewBuildingPlaceable: 1
   HalfTransparentMat: {fileID: 2100000, guid: 54d8fdc438b4faa48a952b09dbb45bec, type: 2}
   FullTransparentMat: {fileID: 2100000, guid: ddc3233afaf3bec4a89c5f83c3fc689a, type: 2}
 --- !u!54 &8882683286098903691

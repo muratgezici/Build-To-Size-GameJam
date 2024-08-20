@@ -5,6 +5,7 @@ using UnityEngine;
 public class CMainBuilding : MonoBehaviour
 {
     private int FilledHexagonCount = 0;
+    private List<GameObject> EmptyHexagonsList = new List<GameObject>();
     public void GetEmptyHexagonsWithConnectedMainBuildings()
     {
         int count = 0;
@@ -20,5 +21,21 @@ public class CMainBuilding : MonoBehaviour
     public int GetFilledHexagonCount()
     {
         return FilledHexagonCount;
+    }
+    public void AddToEmptyHexagonList(GameObject hexagon)
+    {
+        EmptyHexagonsList.Add(hexagon);
+    }
+    public void DestroyBuilding()
+    {
+        foreach(GameObject obj in EmptyHexagonsList)
+        {
+            if(obj != null)
+            {
+                obj.GetComponent<CEmptyHexagonChecker>().CheckIfDeletedBuildingInCurrentHexagon();
+            }
+            
+        }
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }

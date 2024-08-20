@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CCameraMovement : MonoBehaviour
@@ -14,6 +15,22 @@ public class CCameraMovement : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f) // forward
+        {
+            if(gameObject.GetComponent<Camera>().orthographicSize > 1.5f)
+            {
+                gameObject.GetComponent<Camera>().orthographicSize--;
+            }
+            
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
+        {
+            if (gameObject.GetComponent<Camera>().orthographicSize < 9.5f)
+            {
+                gameObject.GetComponent<Camera>().orthographicSize++;
+            }
+        }
+
         if (Input.GetKey(KeyCode.Q))
         {
             TickCounter += Time.deltaTime;

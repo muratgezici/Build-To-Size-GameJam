@@ -6,20 +6,33 @@ public class CBuildingManager : MonoBehaviour
 {
     private GameObject LastHoveredBuilding;
     [SerializeField] GameObject ArcherBuildingPrefab;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject MainBuildingActions;
+    private bool ClickedDirectlyAfterInfoPanel = false;
 
     // Update is called once per frame
     void Update()
     {
-        CheckMouseHitObjectByTag(Camera.main, "Empty");
-        if(Input.GetMouseButtonDown(0))
+        if (!MainBuildingActions.GetComponent<CMainBuildingActions>().GetIsInfoPanelOpen())
         {
-            BuildBuilding();
+            CheckMouseHitObjectByTag(Camera.main, "Empty");
         }
+          if (Input.GetMouseButtonDown(0))
+          {
+            if (!MainBuildingActions.GetComponent<CMainBuildingActions>().GetIsInfoPanelOpen())
+            {
+                if (!ClickedDirectlyAfterInfoPanel)
+                {
+                    BuildBuilding();
+                }
+                ClickedDirectlyAfterInfoPanel = false;
+            }
+            else
+            {
+                ClickedDirectlyAfterInfoPanel = true;
+            }
+          }
+        
+        
     }
 
     public bool CheckMouseHitObjectByTag(Camera cam, string tag)
